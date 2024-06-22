@@ -21,13 +21,16 @@ default: &default
 
 development:
   <<: *default
-  database: yamfrpg_api_development
+  host: <%= ENV.fetch('YAMFRPG_POSTGRES_HOST', 'localhost') %>
+  port: <%= ENV.fetch('YAMFRPG_POSTGRES_PORT', '5432') %>
+  username: <%= ENV.fetch('YAMFRPG_POSTGRES_USERNAME', 'yamfrpg') %>
+  database: yamfrpg_development
 
   # The specified database role being used to connect to PostgreSQL.
   # To create additional roles in PostgreSQL see `$ createuser --help`.
   # When left blank, PostgreSQL will use the default role. This is
   # the same name as the operating system user running Rails.
-  #username: yamfrpg_api
+  #username: dummy
 
   # The password associated with the PostgreSQL role (username).
   #password:
@@ -55,7 +58,10 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: yamfrpg_api_test
+  host: <%= ENV.fetch('YAMFRPG_POSTGRES_HOST', 'localhost') %>
+  port: <%= ENV.fetch('YAMFRPG_POSTGRES_PORT', '5432') %>
+  username: <%= ENV.fetch('YAMFRPG_POSTGRES_USERNAME', 'yamfrpg') %>
+  database: yamfrpg_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -79,6 +85,7 @@ test:
 #
 production:
   <<: *default
-  database: yamfrpg_api_production
-  username: yamfrpg_api
-  password: <%= ENV["YAMFRPG_API_DATABASE_PASSWORD"] %>
+  host: <%= ENV.fetch('YAMFRPG_POSTGRES_HOST', 'localhost') %>
+  port: <%= ENV.fetch('YAMFRPG_POSTGRES_PORT', '5432') %>
+  username: <%= ENV.fetch('YAMFRPG_POSTGRES_USERNAME', 'yamfrpg') %>
+  password: <%= ENV["YAMFRPG_DATABASE_PASSWORD"] %>

@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '3.3.1'
+ruby '3.3.3'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.1.3', '>= 7.1.3.2'
@@ -35,7 +35,10 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
-# gem "rack-cors"
+gem 'rack-cors'
+
+gem 'active_model_serializers'
+gem 'has_scope'
 
 # Uncomment to use local version of the engine.
 gem 'yamfrpg-engine', path: '../yamfrpg-engine'
@@ -53,6 +56,7 @@ end
 group :test do
   gem 'factory_bot_rails'
   gem 'rspec-activemodel-mocks'
+  gem 'rspec-default_http_header'
   gem 'rspec-mocks'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
